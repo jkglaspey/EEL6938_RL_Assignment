@@ -1,0 +1,9 @@
+Models = [SAC, PPO, TD3, DDPG]
+Chunk Sizes = []                     (Models 0         )
+Learning Rates = [1e-5, 3e-5, 1e-4, 3e-4, 1e-3, 3e-3, 1e-2, 3e-2, 1e-1]     (Models 0, 1, 2, 3)
+Batch Sizes = [32, 64, 128, 256, 512]                                       (Models 0, 1, 2, 3)
+Buffer Sizes = [50000, 100000, 200000, 500000, 1000000]                     (Models 0,    2, 3)
+Tau = [0.0001, 0.001, 0.005, 0.01, 0.02]                                    (Models 0,    2, 3)
+Gamma = [0.90, 0.95, 0.99, 0.999, 1.0]                                      (Models 0, 1, 2, 3)
+Ent_coef = [-1.0, 0.01, 0.05, 0.1, 0.2]                                     (Models 0, 1      )
+Net arch = ["64,64", "128,128", "256,256", "512,512"]                       (Models 0, 1, 2, 3)
