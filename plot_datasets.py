@@ -17,17 +17,19 @@ def plot_rewards(file_paths, file_names, output_path):
     
     plt.xlabel("Timesteps")
     plt.ylabel("Average Reward")
-    plt.title("Training Convergence (Reward Function)")
+    plt.title("Training Convergence (Best Configurations)")
     plt.legend()
     plt.tight_layout()
     ax = plt.gca()
-    #ax.set_ylim([-14, 0])
+    ax.set_ylim([-10, 0])
     plt.savefig(output_path)
     plt.show()
     print(f"Saved convergence plot to {output_path}")
 
-reward_files = ["./logs_chunk_training/model-0_chunk-100_lr-0.0003_batch-256_buffer-200000_tau-0.005_gamma-0.99_ent-auto_arch-256-256_reward-0/training_log.csv",
-                "./logs_chunk_training/model-0_chunk-100_lr-0.0003_batch-256_buffer-200000_tau-0.005_gamma-0.99_ent-auto_arch-256-256_reward-4/training_log.csv"
+reward_files = ["./logs/model-0_chunk-200_lr-0.0003_batch-64_buffer-100000_tau-0.0001_gamma-0.9_ent-auto_arch-512-512_reward-4/training_log.csv",
+                "./logs/model-1_chunk-200_lr-0.001_batch-256_buffer-200000_tau-0.005_gamma-0.9_ent-0.0_arch-256-256_reward-4/training_log.csv",
+                "./logs/model-2_chunk-200_lr-0.0003_batch-128_buffer-1000000_tau-0.0001_gamma-0.99_ent-auto_arch-128-128_reward-4/training_log.csv",
+                "./logs/model-3_chunk-200_lr-0.001_batch-64_buffer-50000_tau-0.0001_gamma-0.95_ent-auto_arch-64-64_reward-4/training_log.csv"
                 ]
-reward_filenames = ["SAC: Reward = Absolute Error", "SAC: Reward = Cubed Error"]
-plot_rewards(reward_files, reward_filenames, "reward_convergence.png")
+reward_filenames = ["SAC", "PPO", "TD3", "DDPG"]
+plot_rewards(reward_files, reward_filenames, "best_convergence.png")
